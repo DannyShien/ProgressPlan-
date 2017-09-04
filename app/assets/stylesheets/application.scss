@@ -15,3 +15,10 @@
  *= require_self
  */
 
+@import "bulma"; 
+@import "home";
+
+
+nav.navbar{
+  background-color: lightyellow;
+}
