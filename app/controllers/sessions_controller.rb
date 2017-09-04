@@ -1,4 +1,4 @@
-class SessionsControllerController < ApplicationController
+class SessionsController < ApplicationController
   def new
   end
 
@@ -10,7 +10,7 @@ class SessionsControllerController < ApplicationController
         flash[:error] = "Invalid password"
       end
     else
-      flash[:error] ="Invalid email"
+      flash[:error] = "Invalid email"
     end
     redirect_to login_path
   end
@@ -19,5 +19,5 @@ class SessionsControllerController < ApplicationController
     log_out(current_user)
     redirect_to root_path
   end
-  
+
 end
