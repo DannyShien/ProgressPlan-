@@ -1,1 +1,5 @@
-<h1>Home#index</h1>
+<% unless current_user %>
+  <%= link_to "Create An Account", new_user_path, class: "button is-warning" %>
+<% else %>
+
+<% end %>
