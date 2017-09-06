@@ -1,0 +1,52 @@
+<div class="columns is-centered">
+  <div class="column is-6">
+    <div class="card">
+      <div class="card-header">
+        <h1 class="card-header-title">Log In</h1>
+      </div>
+      <div class="card-content">
+        <div class="columns">
+          <div class="column is-6">
+            <%= form_tag login_path do %>
+              <div class="field">
+                <label class="label">Email</label>
+                <div class="control">
+                  <%= text_field_tag :email, params[:email], class: "input" %>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                  <%= password_field_tag :password, nil, class: "input" %>
+                </div>
+              </div>
+              <div class="field is-grouped is-grouped-right">
+                <div class="control">
+                  <button class="button is-warning">Log In</button>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <div class="column is-6">
+            <div class="card-content">
+              <div class="field is-grouped is-grouped-centered">
+                <label class="label">Facebook Login</label>
+              </div>
+              <div class="field is-grouped is-grouped-centered">
+                <%= link_to icon("facebook", "Connect with Facebook"), "/auth/facebook", class: "button is-warning" %>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="field is-grouped is-grouped-centered">
+                <label class="label">Create Account</label>
+              </div>
+              <div class="field is-grouped is-grouped-centered">
+                <%= link_to "Create An Account", new_user_path, class: "button is-warning" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

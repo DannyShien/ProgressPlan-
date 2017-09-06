@@ -1,5 +1,6 @@
-<% unless current_user %>
-  <%= link_to "Create An Account", new_user_path, class: "button is-warning" %>
+<% if current_user %>  
+  <h1>Home page for progressplanner</h1>
 <% else %>
-
+  <%= link_to "Create An Account", new_user_path, class: "button is-warning" %>
+  <%= link_to "Log In", login_path, class: "navbar-item" %>
 <% end %>

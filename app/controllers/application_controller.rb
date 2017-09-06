@@ -2,7 +2,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user
 
+  #before_action :require_login
+
   private
+  
   def require_login
     if @current_user == current_user
       redirect_to root_path
@@ -18,8 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    return @curret_user if @current_user
+    return @current_user if @current_user
     @current_user = User.find_by(id: session[:user_id])
   end
-
 end

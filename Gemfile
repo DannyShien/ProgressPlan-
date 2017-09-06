@@ -53,3 +53,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "bulma-rails", "~> 0.5.1"
 gem 'omniauth'
 gem 'omniauth-facebook', '~> 4.0.0'
+gem "font-awesome-rails"

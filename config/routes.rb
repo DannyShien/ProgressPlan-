@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'auth/:provider/callback' => 'sessions#callback'
+
   get 'sessions/new'
 
   resources :users
