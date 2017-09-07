@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   resources :users
+  resources :posts
 
   get "login" => "sessions#new"
   post "login" => "sessions#create"

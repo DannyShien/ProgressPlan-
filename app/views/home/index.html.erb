@@ -1,5 +1,57 @@
 <% if current_user %>  
-  <h1>Home page for progressplanner</h1>
+  <div class="container">  
+    <div class="columns">
+      <div class="column is-one-quarter", style="background-color: lightyellow;">
+        <aside class="menu">
+          <div class="media">
+            <div class="media-left">
+              <div class="image is-128x128">
+                <%= image_tag(current_user.image_url_or_default) %>
+              </div>
+            </div>
+            <div class="media-content">   
+              <h1 class="title"><%= current_user.name %></h1>
+            </div>
+          </div>
+          <ul class="menu-list">
+            <p class="title">Menu</p>
+              <li><%= link_to icon("check-square-o", "Accomplish"), "#", class: "menu-item" %>
+              <li><%= link_to icon("users", "Friends"), "#", class: "menu-item" %>  
+                <ul class="hidden">
+                  <%#<li><%= link_to icon("pencil", "Edit Profile"), "#", class: "menu-item" %> 
+                  <%#<li><%= link_to icon("sign-out", "Log Out"), "#", class: "menu-item" %>
+                </ul>
+              </li>               
+          </ul>
+          <div class="card">
+            <div class="card-content">
+              <p class="title">Set Goals</p>
+            <div>
+          </div>
+        </aside>
+      </div>
+      <div class="column is-two-thirds", style="background-color: light blue;">
+        <div class="card">
+          <div class="card-content">
+            <p class="title">Self Evaluation</p>
+          <div>
+        </div>
+        <div class="media">
+          <div class="media-content">             
+            <div class="field">
+              <%# f.hidden_field :wall_user_id, value: current_user.id %> 
+              <div>Question 1:</div>
+              <div>My name</div>
+              <div>Question 1:</div>
+              <div>My name</div>
+              <div>Question 1:</div>
+              <div>My name</div>
+
+              <%= link_to 'Edit', '' %>
+            </div>
+          </div>
+        </div>
+      </div>
 <% else %>
   <%= link_to "Create An Account", new_user_path, class: "button is-warning" %>
   <%= link_to "Log In", login_path, class: "navbar-item" %>

@@ -18,7 +18,5 @@ module ApplicationHelper
       fa_icon(icon_name)
     end + "&nbsp;" .html_safe + text
   end    
-
-
-  
+    
 end

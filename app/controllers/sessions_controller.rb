@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     else
       flash[:error] = "Invalid email"
     end
-    redirect_to root_path
+    redirect_to login_path
   end
 
   def destroy
@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
       redirect_to root_path, flash: {success: "Logged In"}
     else
       flash[:error] = "Login failed: #{user.error.full_messages.to_sentence}"
-      redirect_to root_path
+      redirect_to login_path
     end
   end
 end
