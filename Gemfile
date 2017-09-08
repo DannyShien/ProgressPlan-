@@ -55,3 +55,4 @@ gem 'omniauth'
 gem 'omniauth-facebook', '~> 4.0.0'
 gem "font-awesome-rails"
 gem "jquery-rails"
+gem 'jquery-ui-rails'

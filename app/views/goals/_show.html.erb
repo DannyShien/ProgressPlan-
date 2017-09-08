@@ -24,21 +24,24 @@
           <div class="field">
             <label class="label">Due Date</label>
             <div class="control">
-              <%= f.text_field :due_date, class: "input", placeholder: "What's your goal?" %>
+              <%= f.text_field :due_date, class: "input datepicker", placeholder: "Complete Date" %>
+
+              <script type="text/javascript">
+                $(document).ready(function(){
+                  $('.datepicker').datepicker();
+                });
+              </script>
             </div>
           </div>
-        <% end %>
       </section>
       <footer class="modal-card-foot">
         <div class="field is-grouped is-grouped-right">
           <div class="control">
-            <button class="button is-info is-outlined">Submit</button>
-          </div>
-          <div class="control">
-            <button class="button is-danger is-outlined">Cancel</button>
+            <%= f.submit "Submit", class: "button is-info is-outlined" %>
           </div>
         </div>
       </footer>
+        <% end %>
     </div>
   </div>
 </div> 

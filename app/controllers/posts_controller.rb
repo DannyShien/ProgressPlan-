@@ -3,11 +3,11 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
   end
   
   def create 
-    @post = Post.new post_params
-    @post.poster = current_user
+    @post = current_user.post.build post_params 
     if @post.save
       redirect_back fallback_location: goals_path, flash: {success: 'post created'}
     else

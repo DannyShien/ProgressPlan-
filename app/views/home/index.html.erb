@@ -24,7 +24,17 @@
           </ul>
           <div class="card">
             <div class="card-content">
-              <h1 class="subtitle">Set Goals</h1>
+              <h1 class="subtitle">Goals</h1>
+              <ul class="menu-complete-list">
+                <% @goals.each do |goal| %>
+                <li>
+                  <label><%= goal.title %> - <%= goal.completed %> - Due date: <%=goal.due_date %></label>
+                  <% unless goal.completed %>
+                  <%= link_to "Done", complete_path(goal.id), class: "menu-complete-list" %>
+                  <% end %>
+                </li>
+                <% end %>
+              </ul>
               <%= link_to "Add Goal", goals_path, class: "card-item js-show-modal", remote: true %>
             </div>
           </div>
@@ -58,47 +68,7 @@
       </div>
     </div>
   </div>
-
-<div class="modal">
-  <div class="modal-background">
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Add Goal</p>
-        <button class="delete" aria-label="close"></button>
-      </header>
-      <section class="modal-card-body">
-        <%= form_for current_user.goals.build do |f| %>
-          <div class="field">
-            <label class="label">Title</label>
-            <div class="control">
-              <%= f.text_field :title, class: "input", placeholder: "Title" %>
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">Notes</label>
-            <div class="control">
-              <%= f.text_area :note, class: "input-area", placeholder: "Goal details...", size: "103x8" %>
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">Due Date</label>
-            <div class="control">
-              <%= f.text_field :due_date, class: "input", placeholder: "What's your goal?" %>
-            </div>
-          </div>
-        <% end %>
-      </section>
-      <footer class="modal-card-foot">
-        <div class="field is-grouped is-grouped-right">
-          <div class="control">
-            <button class="button is-info is-outlined">Submit</button>
-          </div>
-        </div>
-      </footer>
-    </div>
-  </div>
-  </div>
-
+  <%= render "goals/show"  %>
 
   
 <% else %>

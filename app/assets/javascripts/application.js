@@ -13,5 +13,6 @@
 //= require jquery
 //= require rails-ujs
 //= require turbolinks
-//= home
+//= require jquery-ui
+//= require home
 //= require_tree .

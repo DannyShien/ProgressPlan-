@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   # get "posts/index"
 
+  get "complete/:id" => "goals#complete", as: 'complete'
   get 'auth/:provider/callback' => 'sessions#callback'
 
 
