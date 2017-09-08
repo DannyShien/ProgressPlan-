@@ -20,6 +20,16 @@
 @import "font-awesome";
 
 
-// nav.navbar{
-//   background-color: lightyellow;
-// }
+.container {
+  margin-top: 20px;
+}
+
+.field:not(:last-child) {
+ margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.button.is-primary {
+  margin: 5px;
+}

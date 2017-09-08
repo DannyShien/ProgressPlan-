@@ -14,14 +14,13 @@
             </div>
           </div>
           <ul class="menu-list">
-            <p class="title">Menu</p>
-              <li><%= link_to icon("check-square-o", "Accomplish"), "#", class: "menu-item" %>
-              <li><%= link_to icon("users", "Friends"), "#", class: "menu-item" %>  
-                <ul class="hidden">
-                  <%#<li><%= link_to icon("pencil", "Edit Profile"), "#", class: "menu-item" %> 
-                  <%#<li><%= link_to icon("sign-out", "Log Out"), "#", class: "menu-item" %>
-                </ul>
-              </li>               
+            <li><%= link_to icon("check-square-o", "Accomplish"), "#", class: "menu-item" %>
+            <li><%= link_to icon("users", "Friends"), "#", class: "menu-item" %>  
+              <ul class="hidden">
+                <%#<li><%= link_to icon("pencil", "Edit Profile"), "#", class: "menu-item" %> 
+                <%#<li><%= link_to icon("sign-out", "Log Out"), "#", class: "menu-item" %>
+              </ul>
+            </li>               
           </ul>
           <div class="card">
             <div class="card-content">
@@ -32,26 +31,33 @@
       </div>
       <div class="column is-two-thirds", style="background-color: light blue;">
         <div class="card">
-          <div class="card-content">
-            <p class="title">Self Evaluation</p>
-          <div>
-        </div>
-        <div class="media">
-          <div class="media-content">             
-            <div class="field">
-              <%# f.hidden_field :wall_user_id, value: current_user.id %> 
-              <div>Question 1:</div>
-              <div>My name</div>
-              <div>Question 1:</div>
-              <div>My name</div>
-              <div>Question 1:</div>
-              <div>My name</div>
-
-              <%= link_to 'Edit', '' %>
+          <div class="card-header">
+            <h1 class="card-header-title">Self Evaluation</h1>
+          </div>
+          <div class="card-content">             
+            <div class="field"> 
+              <label class="label">What do you think you're good at?</label>
+              <div class="control">
+                <input class="input", placeholder="Enter text here..">
+              </div>
+              <label class="label">What can you improve on?</label> 
+              <div class="control">
+                <input class="input", placeholder= "Enter text here.."> 
+              </div>
+              <label class="label">What do you suck at?</label>
+              <div class="control">
+                <input class="input", placeholder="Enter text here..">
+              </div>
+              <div class="control">
+                <%= link_to 'Edit', '' %>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  
 <% else %>
   <%= link_to "Create An Account", new_user_path, class: "button is-warning" %>
   <%= link_to "Log In", login_path, class: "navbar-item" %>

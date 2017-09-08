@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
+  get 'posts/index'
+
   get 'auth/:provider/callback' => 'sessions#callback'
 
-  get 'sessions/new'
+  
 
   resources :users
   resources :posts
 
-  get "login" => "sessions#new"
+  get "login" => "sessions#login"
   post "login" => "sessions#create"
   get "logout" => "sessions#destroy"
 
