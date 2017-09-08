@@ -2,6 +2,6 @@ class HomeController < ApplicationController
   before_action :require_login
 
   def index
-    #@posts = current_user.posts
+    @goal = Post.order("update_at DESC")
   end
 end

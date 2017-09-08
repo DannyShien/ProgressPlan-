@@ -54,3 +54,4 @@ gem "bulma-rails", "~> 0.5.1"
 gem 'omniauth'
 gem 'omniauth-facebook', '~> 4.0.0'
 gem "font-awesome-rails"
+gem "jquery-rails"

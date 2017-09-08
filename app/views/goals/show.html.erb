@@ -1,0 +1,45 @@
+<!-- Add goals page -->
+
+<div class="modal">
+  <div class="modal-background">
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Add Goal</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <%= form_for current_user.goals.build do |f| %>
+          <div class="field">
+            <label class="label">Title</label>
+            <div class="control">
+              <%= f.text_field :title, class: "input", placeholder: "Title" %>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Notes</label>
+            <div class="control">
+              <%= f.text_area :note, class: "input-area", placeholder: "Goal details...", size: "103x8" %>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Due Date</label>
+            <div class="control">
+              <%= f.text_field :due_date, class: "input", placeholder: "What's your goal?" %>
+            </div>
+          </div>
+        <% end %>
+      </section>
+      <footer class="modal-card-foot">
+        <div class="field is-grouped is-grouped-right">
+          <div class="control">
+            <button class="button is-info is-outlined">Submit</button>
+          </div>
+          <div class="control">
+            <button class="button is-danger is-outlined">Cancel</button>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div> 
+

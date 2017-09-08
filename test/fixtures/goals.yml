@@ -4,8 +4,10 @@ one:
   title: MyString
   note: MyText
   completed: 2017-09-08
+  user_id: 1
 
 two:
   title: MyString
   note: MyText
   completed: 2017-09-08
+  user_id: 1

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resource :goals
 
-  get "posts/index"
+  # get "posts/index"
 
   get 'auth/:provider/callback' => 'sessions#callback'
 

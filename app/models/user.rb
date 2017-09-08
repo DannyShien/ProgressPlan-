@@ -3,6 +3,9 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  has_many :posts, foreign_key: 'poster_id'
+  has_many :goals, dependent: :destroy
+
 
   #mount_uploader :avatar, AvatarUploader
 
