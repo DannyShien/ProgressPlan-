@@ -22,7 +22,6 @@ class GoalsController < ApplicationController
 
   def complete
     @goal = Goal.find(params[:id])
-
     @goal.completed = DateTime.now
     if @goal.save
       flash[:success] = "Completed"

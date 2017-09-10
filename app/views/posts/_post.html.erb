@@ -2,18 +2,22 @@
   <div class="card-content">
     <div class="media">
       <div class="media-left">
-        <div class="image is-32x32">
+        <div class="image is-64x64">
           <%= image_tag "http://lorempixel.com/128/128/people/" %>
         </div>
       </div>
       <div class="media-content">
-        <p class="is-title"><%= post.poster.name %></p>
-        <%= mentions_text(post) %>
-        <small><%= time_ago_in_words post.updated_at %> ago</small>
+        <strong><%= post.poster.name %></strong> <small><%= time_ago_in_words post.updated_at %> ago</small>
+        <div class="media-content">
+          <% post.goals.each do |goal| %>
+          <%= goal.title %>
+          <% end %>
+        </div>
+        </div>
+        </div>
       </div>
-    </div>
-    <div class="content">
-      <p><%= post.body %></p>
+      <div class="content">
+        <p><%= post.body %></p>
     </div>
   </div>
 </div>

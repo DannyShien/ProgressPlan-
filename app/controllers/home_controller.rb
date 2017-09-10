@@ -3,5 +3,7 @@ class HomeController < ApplicationController
 
   def index
     @goals = Goal.order("created_at DESC")
+    @posts = Post.all  
   end
+  
 end

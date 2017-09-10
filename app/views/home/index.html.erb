@@ -28,18 +28,30 @@
               <ul class="menu-complete-list">
                 <% @goals.each do |goal| %>
                 <li>
-                  <label><%= goal.title %> - <%= goal.completed %> - Due date: <%=goal.due_date %></label>
+                  <div class="level">
+                    <div class="level-left"> 
+                      <div class="level-item">
+                        <strong><%= goal.title %></strong>
+                      </div>
+                    </div>
+                    <div class="level-right"> 
+                      <div class="level-item">
+                        <strong> - Due date: <%=goal.due_date %></strong>
+                      </div>
+                    </div>
+                  </div>
                   <% unless goal.completed %>
                   <%= link_to "Done", complete_path(goal.id), class: "menu-complete-list" %>
                   <% end %>
                 </li>
                 <% end %>
               </ul>
-              <%= link_to "Add Goal", goals_path, class: "card-item js-show-modal", remote: true %>
+              <%= link_to "Add Goal", goals_path, class: "card-item js-show-modal is-outlined", remote: true %>
             </div>
           </div>
         </aside>
       </div>
+      <%= render "goals/add_goals"  %>
       <div class="column is-two-thirds", style="background-color: light blue;">
         <div class="card">
           <div class="card-header">
@@ -65,10 +77,12 @@
             </div>
           </div>
         </div>
+        <div class="all-posts">
+
+        </div>
       </div>
     </div>
   </div>
-  <%= render "goals/show"  %>
 
   
 <% else %>
