@@ -1,89 +1,81 @@
 <% if current_user %>  
-  <div class="container">  
-    <div class="columns">
-      <div class="column is-one-third", style="background-color: lightyellow;">
-        <aside class="menu">
-          <div class="media">
-            <div class="media-left">
-              <div class="image is-128x128">
-                <%= image_tag(current_user.image_url_or_default) %>
-              </div>
-            </div>
-            <div class="media-content">   
-              <h1 class="title"><%= current_user.name %></h1>
+<div class="container">  
+  <div class="columns">
+    <div class="column is-one-third", style="background-color: lightyellow;">
+      <aside class="menu">
+        <div class="media">
+          <div class="media-left">
+            <div class="image is-128x128">
+              <%= image_tag(current_user.image_url_or_default) %>
             </div>
           </div>
-          <ul class="menu-list">
-            <li><%= link_to icon("check-square-o", "Accomplish"), "#", class: "menu-item" %>
-            <li><%= link_to icon("users", "Friends"), "#", class: "menu-item" %>  
-              <ul class="hidden">
-                <%#<li><%= link_to icon("pencil", "Edit Profile"), "#", class: "menu-item" %> 
-                <%#<li><%= link_to icon("sign-out", "Log Out"), "#", class: "menu-item" %>
-              </ul>
-            </li>               
-          </ul>
-          <div class="card">
-            <div class="card-content">
-              <h1 class="subtitle">Goals</h1>
-              <ul class="menu-complete-list">
-                <% @goals.each do |goal| %>
-                <li>
-                  <div class="level">
-                    <div class="level-left"> 
-                      <div class="level-item">
-                        <strong><%= goal.title %></strong>
-                      </div>
-                    </div>
-                    <div class="level-right"> 
-                      <div class="level-item">
-                        <strong> - Due date: <%=goal.due_date %></strong>
-                      </div>
-                    </div>
-                  </div>
-                  <% unless goal.completed %>
-                  <%= link_to "Done", complete_path(goal.id), class: "menu-complete-list" %>
-                  <% end %>
-                </li>
-                <% end %>
-              </ul>
-              <%= link_to "Add Goal", goals_path, class: "card-item js-show-modal is-outlined", remote: true %>
-            </div>
+          <div class="media-content">   
+            <h1 class="title"><%= current_user.name %></h1>
           </div>
-        </aside>
-      </div>
-      <%= render "goals/add_goals"  %>
-      <div class="column is-two-thirds", style="background-color: light blue;">
+        </div>
+        <ul class="menu-list">
+          <li><%= link_to icon("check-square-o", "Accomplish"), "#", class: "menu-item" %></li>
+          <li><%= link_to icon("users", "Friends"), "#", class: "menu-item" %></li>               
+        </ul>
         <div class="card">
-          <div class="card-header">
-            <h1 class="card-header-title">Self Evaluation</h1>
+          <div class="card-content">
+            <h1 class="subtitle">Goals</h1>
+            <ul class="menu-complete-list">
+              <% @incomplete_goals.each do |goal| %>
+              <li>
+                <div class="menu-item">
+                  <strong><%= goal.title %></strong>
+                </div>
+                <div class="menu-item" style="font-style: italic">
+                  <%= goal.due_date %>
+                </div>
+                <% unless goal.completed %>
+                <%= link_to "Done", complete_path(goal.id), class: "js-add" %>
+                <% end %>
+              </li>
+              <% end %>
+            </ul>
+            <%= link_to "Add Goal", goals_path, class: "card-item js-show-modal is-outlined", remote: true %>
           </div>
-          <div class="card-content">             
-            <div class="field"> 
-              <label class="label">What do you think you're good at?</label>
-              <div class="control">
-                <input class="input", placeholder="Enter text here..">
-              </div>
-              <label class="label">What can you improve on?</label> 
-              <div class="control">
-                <input class="input", placeholder= "Enter text here.."> 
-              </div>
-              <label class="label">What do you suck at?</label>
-              <div class="control">
-                <input class="input", placeholder="Enter text here..">
-              </div>
-              <div class="control">
-                <%= link_to 'Edit', class: "card-item" %>
-              </div>
+        </div>
+      </aside>
+    </div>
+    <%= render "goals/add_goals"  %>
+    <div class="column is-two-thirds", style="background-color: light blue;">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="card-header-title">Self Evaluation</h1>
+        </div>
+        <div class="card-content">             
+          <div class="field"> 
+            <label class="label">What do you think you're good at?</label>
+            <div class="control">
+              <input class="input", placeholder="Enter text here..">
+            </div>
+            <label class="label">What can you improve on?</label> 
+            <div class="control">
+              <input class="input", placeholder= "Enter text here.."> 
+            </div>
+            <label class="label">What do you suck at?</label>
+            <div class="control">
+              <input class="input", placeholder="Enter text here..">
+            </div>
+            <div class="control">
+              <%= link_to 'Edit', class: "card-item" %>
             </div>
           </div>
         </div>
-        <div class="all-posts">
-
+      </div>  
+      <div class="columns is-centered">
+        <div class="column is-10", style="margin-top: 10px;">
+          <% @completed_goals.each do |goal| %>
+          <%= render "goals/goal_post", goal: goal %>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
-
+</div>
   
 <% else %>
   <%= link_to "Create An Account", new_user_path, class: "button is-warning" %>

@@ -30,4 +30,13 @@ class User < ApplicationRecord
     # Finally, return user
     user.save(validate: false) && user
   end
+
+  def completed_goals
+    goals.where("completed is not null").order("created_at DESC")
+  end
+
+  def incomplete_goals
+    goals.where("completed is null").order("created_at DESC")
+  end
 end
+

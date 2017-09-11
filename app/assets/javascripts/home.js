@@ -9,9 +9,9 @@ $(document).on('turbolinks:load', function() {
     $(".modal").removeClass("is-active")
   })
             
-  // $("div.modal-background").on("click", function() {
-  //   $(".modal").removeClass("is-active")
-    
-  // })    
+  $("div.modal-background").on("click", function() {
+    $(".modal").removeClass("is-active");  
+  })    
+
 })
 

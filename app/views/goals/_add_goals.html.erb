@@ -1,48 +1,41 @@
 <!-- Add goals page -->
 
 <div class="modal">
-  <div class="modal-background">
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Add Goal</p>
-        <button class="delete" aria-label="close"></button>
-      </header>
-      <section class="modal-card-body">
-        <%= form_for current_user.goals.build do |f| %>
-          <div class="field">
-            <label class="label">Title</label>
-            <div class="control">
-              <%= f.text_field :title, class: "input", placeholder: "Title" %>
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">Notes</label>
-            <div class="control">
-              <%= f.text_area :note, class: "input-area", placeholder: "Goal details...", size: "103x8" %>
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">Due Date</label>
-            <div class="control">
-              <%= f.text_field :due_date, class: "input datepicker", placeholder: "Complete Date" %>
-
-              <script type="text/javascript">
-                $(document).ready(function(){
-                  $('.datepicker').datepicker();
-                });
-              </script>
-            </div>
-          </div>
-      </section>
-      <footer class="modal-card-foot">
-        <div class="field is-grouped is-grouped-right">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Add Goal</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <%= form_for current_user.goals.build do |f| %>
+        <div class="field">
+          <label class="label">Title</label>
           <div class="control">
-            <%= f.submit "Submit", class: "button is-info is-outlined" %>
+            <%= f.text_field :title, class: "input", placeholder: "Title" %>
           </div>
         </div>
-      </footer>
-        <% end %>
-    </div>
+        <div class="field">
+          <label class="label">Notes</label>
+          <div class="control">
+            <%= f.text_area :note, class: "input-area", placeholder: "Goal details...", size: "103x8" %>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Due Date</label>
+          <div class="control">
+            <%= f.date_field :due_date, class: "input datepicker", placeholder: "Complete Date" %>
+          </div>
+        </div>
+    </section>
+    <footer class="modal-card-foot">
+      <div class="field is-grouped is-grouped-right">
+        <div class="control">
+          <%= f.submit "Submit", class: "button is-info is-outlined" %>
+        </div>
+      </div>
+    </footer>
+      <% end %>
   </div>
 </div> 
 

@@ -10,6 +10,10 @@ class GoalsController < ApplicationController
   def show
   end
 
+  # def post
+  #   @goal = Goal.find(params[:id])
+  # end
+
   def create
     @goal = current_user.goals.build goal_params
     if @goal.save
