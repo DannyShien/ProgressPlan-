@@ -1,22 +1,25 @@
-<br>
-<div class="card">
+<div class="card-goals" data-id="<%= goal.id %>">
   <div class="level">
     <div class="level-left">
       <div class="level-item">
-        <span><strong><%= goal.title %></strong></span>
+        <span><strong><%= goal.title %></strong></span><br>
       </div>
     </div>
     <div class="level-right">
-      <div class="leve-item">
+      <div class="level-item">
         <% unless goal.completed %>
-          <%= link_to "Complete", complete_path(goal.id), class: "menu-item" %>
+          <%= link_to icon("check-square-o", " "), complete_path(goal.id), class: "menu-item" %>
         <% end %>
       </div>
     </div>
   </div>
+  <div style="display:flex; justify-content:space-between">
+    <strong><em>Set Date:</em></strong> <em><%= goal.due_date %></em>
+  </div>
   <div class="card-content">
-    <div class="content">
-      <progress class="progress" value="<%= goal.completion_rate %>" max="100">15%</progress>
+    <div class="content" style="position: relative;">
+      <progress class="progress" value="<%= goal.completion_rate %>" max="100"></progress>
+      <span class="progresslabel"><%= goal.completion_rate %> % </span>
     </div>
   </div>
 </div>
@@ -25,24 +28,3 @@
 
 
 
-<br>
-<li>
-  <div class="dropdown is-hoverable">
-    <div class="dropdown-trigger">
-      <span><strong><%= goal.title %></strong></span>
-    </div>
-    <div class="dropdown-menu" id="dropdown-menu4" role="menu">
-      <div class="dropdown-content">
-        <div class="dropdown-item">
-          <%= goal.note %>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="menu-item">
-    <strong><em>Set Date:</em></strong> <em><%= goal.due_date %></em>
-  </div>
-  <% unless goal.completed %>
-  <%= link_to "Done", complete_path(goal.id), class: "menu-item" %>
-  <% end %>
-</li>

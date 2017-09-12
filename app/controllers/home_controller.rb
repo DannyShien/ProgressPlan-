@@ -5,6 +5,5 @@ class HomeController < ApplicationController
     @posts = Post.all
     @completed_goals = current_user.completed_goals
     @incomplete_goals = current_user.incomplete_goals
-
   end
 end

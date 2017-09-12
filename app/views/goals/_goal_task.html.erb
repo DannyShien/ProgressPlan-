@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-content">             
+    <% @incomplete_goals.each do |goal|%>
+      <div class="card hidden" id="<%= dom_id goal %>">
+        <div class="card-content">             
+          <span><strong><%= goal.title %></strong></span>
+        </div>          
+        <% goal.tasks.each do |task| %>
+          <%= task.title %>
+        <% end %>          
+      </div>
+      <% end %>
+      <div class="control">
+        <%= link_to 'Edit', class: "card-item" %>
+      </div>
+    </div>
+  </div>
+</div>
+

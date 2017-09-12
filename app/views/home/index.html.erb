@@ -18,46 +18,55 @@
           </div>
         </div>
         <div class="card">
+          <div class="card-header">
+            <div class="card-header-title">
+              <h1 class="subtitle">GOALS TO ACHIEVE</h1>
+            </div>
+          </div>
           <div class="card-content">
-            <h1 class="subtitle has-text-centered">GOALS TO ACHIEVE</h1>
             <ul class="menu-complete-list">
               <% @incomplete_goals.each do |goal| %>
                 <%= render "home/goal_listing", goal: goal %>
+                <%= render "tasks/add_task_modal", goal: goal %>
               <% end %>
             </ul>
             <footer class="card-footer">
-            <%= link_to "Add Goal", goals_path, class: "card-item js-show-modal is-outlined", remote: true %>
-            </footer>
+              <%= link_to "Add Goal", "/", class: "card-item js-show-modal is-outlined", remote: true %>
+            </footer> 
           </div>
         </div>
       </aside>
     </div>
     <%= render "goals/add_goals"  %>
-    <div class="column is-7", style="background-color: light blue;">
+    <div class="column is-7", style="background-color: lightblue;">
       <div class="card">
         <div class="card-header">
-          <h1 class="card-header-title">Self Evaluation</h1>
-        </div>
-        <div class="card-content">             
-          <div class="field"> 
-            <label class="label">What do you think you're good at?</label>
-            <div class="control">
-              <input class="input", placeholder="Enter text here..">
-            </div>
-            <label class="label">What can you improve on?</label> 
-            <div class="control">
-              <input class="input", placeholder= "Enter text here.."> 
-            </div>
-            <label class="label">What do you suck at?</label>
-            <div class="control">
-              <input class="input", placeholder="Enter text here..">
-            </div>
-            <div class="control">
-              <%= link_to 'Edit', class: "card-item" %>
-            </div>
+          <div class="card-header-title">
+            <h1 class="subtitle">Goal Task</h1>
           </div>
         </div>
-      </div>  
+        <div class="card">
+          <div class="card-content-goal-task">             
+            <% @incomplete_goals.each do |goal|%>
+              <div class="card hidden" id="<%= dom_id goal %>">
+                <div class="card-content">             
+                  <span><strong><%= goal.title %></strong></span>
+                </div>          
+                <div class="task-list">
+                  <% goal.tasks.each do |task| %>
+                    <div class="task">
+                      <%= task.title %>
+                    </div>
+                  <% end %>          
+                </div>
+                <div class="control">
+                  <div class="button is-primary add-task-btn" data-goal-id="<%= goal.id %>">Add</div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
       <div class="columns is-centered">
         <div class="column is-10", style="margin-top: 10px;">
           <% @completed_goals.each do |goal| %>

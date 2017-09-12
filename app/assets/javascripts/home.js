@@ -15,6 +15,15 @@ $(document).on('turbolinks:load', function() {
 
   // $("button.flash-delete").on("click", function(){
   //   $("div.message").removeClass("is-active");
-  // })  
-})
+  // })
+  
+  $(".card-goals").click(function(e) {
+    var data = $(e.target).parents(".card-goals").attr("data-id")
+    $("#goal_" + data).toggle("hidden")
+  })
 
+  $('.add-task-btn').click(function(e) {
+    var goal_id = $(e.target).first().data('goal-id');
+    $(`#add_task_goal_${goal_id}`).addClass('is-active');
+  })
+})

@@ -1,25 +1,20 @@
-<!-- Adding goals -->
-<div class="modal">
+<!-- Add tasks page -->
+<div class="modal" id="add_task_goal_<%= goal.id %>">
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
-      <p class="modal-card-title">Add Goal</p>
+      <p class="modal-card-title">Add Task</p>
       <button class="delete" aria-label="close"></button>
     </header>
     <section class="modal-card-body">
-    <%= form_for current_user.goals.build do |f| %>
+    <%= form_for goal.tasks.build do |f| %>
       <div class="field">
         <label class="label">Title</label>
         <div class="control">
           <%= f.text_field :title, class: "input", placeholder: "Title" %>
         </div>
-      </div> 
-      <div class="field">
-        <label class="label">Due Date</label>
-        <div class="control">
-          <%= f.date_field :due_date, class: "input datepicker", placeholder: "Complete Date" %>
-        </div>
       </div>
+      <%= f.hidden_field :goal_id, value: goal.id %>
     </section>
     <footer class="modal-card-foot">
       <div class="field">

@@ -25,6 +25,7 @@
 
 a {
   color: skyblue;
+  margin-top: 7px;
 }
 
 .subtitle:not(:last-child) {
@@ -34,4 +35,18 @@ a {
 
 .media {
   margin-bottom: 15px;
+}
+
+.progresslabel {
+  font-family: "Arial";
+  position: absolute;
+  left: 240px;
+  top: -4px;
+  font-size: medium;
+  color: #32af49;
+  font-weight: 800;
+}
+
+.hidden {
+  display: none;
 }
