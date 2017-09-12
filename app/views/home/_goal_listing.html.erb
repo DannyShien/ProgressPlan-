@@ -1,0 +1,22 @@
+
+<br>
+<li>
+  <div class="dropdown is-hoverable">
+    <div class="dropdown-trigger">
+      <span><strong><%= goal.title %></strong></span>
+    </div>
+    <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+      <div class="dropdown-content">
+        <div class="dropdown-item">
+          <%= goal.note %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="menu-item">
+    <strong>Set Date:</strong> <%= goal.due_date %>
+  </div>
+  <% unless goal.completed %>
+  <%= link_to "Done", complete_path(goal.id), class: "menu-item" %>
+  <% end %>
+</li>

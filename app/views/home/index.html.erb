@@ -22,20 +22,12 @@
             <h1 class="subtitle">Goals</h1>
             <ul class="menu-complete-list">
               <% @incomplete_goals.each do |goal| %>
-              <li>
-                <div class="menu-item">
-                  <strong><%= goal.title %></strong>
-                </div>
-                <div class="menu-item" style="font-style: italic">
-                  <%= goal.due_date %>
-                </div>
-                <% unless goal.completed %>
-                <%= link_to "Done", complete_path(goal.id), class: "js-add" %>
-                <% end %>
-              </li>
+                <%= render "home/goal_listing", goal: goal %>
               <% end %>
             </ul>
+            <footer class="card-footer">
             <%= link_to "Add Goal", goals_path, class: "card-item js-show-modal is-outlined", remote: true %>
+            </footer>
           </div>
         </div>
       </aside>

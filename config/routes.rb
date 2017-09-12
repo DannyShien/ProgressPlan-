@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resource :goals
-
-  # get "posts/index"
+  resource :daily_tasks
 
   get "complete/:id" => "goals#complete", as: 'complete'
   get 'auth/:provider/callback' => 'sessions#callback'

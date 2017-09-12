@@ -6,15 +6,19 @@
           <%= image_tag "http://lorempixel.com/128/128/people/" %>
         </div>
       </div>
-      <div class="media-left2">
-        <strong> <%= current_user.name %> </strong>
-      </div>
       <div class="media-content">
-        <strong> <%= goal.title %> </strong>
+        <div class="content">
+            <strong1> <%= current_user.name %> </strong1>
+            <br>
+            <p> <%= goal.title %> </p>
+        </div>
       </div>
       <div class="media-right">
-        <small> <%= goal.completed.strftime("%^b %d") %> </small> 
+        <strong>Completed Goal!</strong> 
+        <br>
+        <small> <%= goal.completed.strftime("%^b %d") %> </small>
       </div>     
     </div>
   </div>
 </div>
+

@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   has_many :posts, foreign_key: 'poster_id'
   has_many :goals, dependent: :destroy
+  has_many :daily_tasks, dependent: :destroy
 
 
   #mount_uploader :avatar, AvatarUploader

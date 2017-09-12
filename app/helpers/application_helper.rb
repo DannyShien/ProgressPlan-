@@ -7,7 +7,7 @@ module ApplicationHelper
     flash.map do |msg_type, message|
       content_tag(:div, class: "message #{class_for(msg_type)}") do
         content_tag(:div, class: "message-header") do
-          (message + content_tag(:button, 'x'.html_safe, class: 'delete')).html_safe
+          (message + content_tag(:button, 'x'.html_safe, class: 'flash-delete')).html_safe
         end
       end
     end.join.html_safe

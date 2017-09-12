@@ -18,3 +18,10 @@
   margin: 5px;
 }
 
+a {
+  color: skyblue;
+}
+
+.subtitle:not(:last-child) {
+  margin-bottom: -0.5rem;
+}
