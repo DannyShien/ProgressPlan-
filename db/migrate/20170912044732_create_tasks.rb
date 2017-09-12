@@ -1,8 +1,7 @@
 class CreateTasks < ActiveRecord::Migration[5.1]
   def change
-    create_table :daily_tasks do |t|
-      t.string :title
-      t.date :completed
+    create_table :tasks do |t|
+      t.references :goal, foreign_key: true
 
       t.timestamps
     end

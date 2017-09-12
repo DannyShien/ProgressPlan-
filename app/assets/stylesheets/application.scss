@@ -14,6 +14,11 @@
   margin-right: 5px;
 }
 
+.level:not(:last-child) {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
 .button.is-primary {
   margin: 5px;
 }
@@ -24,4 +29,9 @@ a {
 
 .subtitle:not(:last-child) {
   margin-bottom: -0.5rem;
+  
+}
+
+.media {
+  margin-bottom: 15px;
 }

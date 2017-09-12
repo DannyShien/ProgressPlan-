@@ -1,3 +1,29 @@
+<br>
+<div class="card">
+  <div class="level">
+    <div class="level-left">
+      <div class="level-item">
+        <span><strong><%= goal.title %></strong></span>
+      </div>
+    </div>
+    <div class="level-right">
+      <div class="leve-item">
+        <% unless goal.completed %>
+          <%= link_to "Complete", complete_path(goal.id), class: "menu-item" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="card-content">
+    <div class="content">
+      <progress class="progress" value="<%= goal.completion_rate %>" max="100">15%</progress>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 <br>
 <li>
@@ -14,7 +40,7 @@
     </div>
   </div>
   <div class="menu-item">
-    <strong>Set Date:</strong> <%= goal.due_date %>
+    <strong><em>Set Date:</em></strong> <em><%= goal.due_date %></em>
   </div>
   <% unless goal.completed %>
   <%= link_to "Done", complete_path(goal.id), class: "menu-item" %>

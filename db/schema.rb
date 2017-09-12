@@ -10,17 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911145823) do
+ActiveRecord::Schema.define(version: 20170912045635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "daily_tasks", force: :cascade do |t|
-    t.string "title"
-    t.date "completed"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "goals", force: :cascade do |t|
     t.string "title"
@@ -39,6 +32,15 @@ ActiveRecord::Schema.define(version: 20170911145823) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.bigint "goal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.date "completed"
+    t.index ["goal_id"], name: "index_tasks_on_goal_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -46,9 +48,7 @@ ActiveRecord::Schema.define(version: 20170911145823) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_url"
-    t.text "answer_1"
-    t.text "answer_2"
-    t.text "answer_3"
   end
 
+  add_foreign_key "tasks", "goals"
 end
