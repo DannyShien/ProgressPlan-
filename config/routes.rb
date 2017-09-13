@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   
   post "toggle_like" => "likes#toggle"
   
+  
   resource :goals
   resource :daily_tasks
   resources :users
@@ -11,6 +12,9 @@ Rails.application.routes.draw do
   resources :tasks do
     patch :complete, on: :member
   end
+  resources :friendships
+
+  delete "remove_friend" => "friendships#destroy"
 
   get "login" => "sessions#login"
   post "login" => "sessions#create"

@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :goals, dependent: :destroy
   has_many :tasks, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :friendships, dependent: :destroy
+  has_many :friends, through: :friendships
 
 
   #mount_uploader :avatar, AvatarUploader
@@ -53,5 +55,47 @@ class User < ApplicationRecord
     likes.where(item: item).exists?
   end
 
+  def add_friend(another_user)
+    friends << another_user
+  end
+  
+  def is_friend?(another_user)
+    friends.include?(another_user)
+  end
+  
+  def friend_names
+    friends.map{|e| e.name}
+  end
+
+  def self.except(user)
+    where.not(id: user.id)
+  end
+
+  def friends 
+    friendships
+  end
+  
+  def self.recipient_options(user)
+    except(user).map{|e| [e.name, e.id]}
+  end
+
+  def self.generate_users(n = 5, gender = "female")
+    url = "https://randomuser.me/api?results=#{n}&gender=#{gender}"
+    body = HTTP.get(url).parse
+    body["results"].each do |person|
+      hash = {}
+      hash[:name] = person["name"]["first"] + " " + person["name"]["last"]
+      hash[:email] = person["email"]
+      hash[:password] = person["login"]["password"]
+      hash[:password] = person["login"]["password"]
+      hash[:image_url] = person["picture"]["large"]
+      User.create! hash
+    end
+  end 
+
+  def self.random_user
+    random_index = rand(User.count)
+    User.offset(random_index).first
+  end
 end
 

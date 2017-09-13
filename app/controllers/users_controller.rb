@@ -14,6 +14,10 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+
+  def index
+    @users = User.all.order("created_at DESC")
+  end
   
   private
   

@@ -13,7 +13,7 @@
             <h1 class="title"><%= current_user.name %></h1>
             <ul class="menu-list">
               <li><%= link_to icon("check-square-o", "Accomplish"), "#", class: "menu-item" %></li>
-              <li><%= link_to icon("users", "Friends"), "#", class: "menu-item" %></li>               
+              <li><%= link_to icon("users", "Friends"), users_path, class: "menu-item" %></li>               
             </ul>
           </div>
         </div>
