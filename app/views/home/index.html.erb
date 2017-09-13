@@ -35,9 +35,12 @@
             <%= link_to "Add Goal", "/", class: "card-item js-show-modal is-outlined", remote: true %>
           </footer> 
         </div>
+        <%= render "goals/add_goals" %>
+
+        <!-- Daily Task -->
+
       </aside>
     </div>
-    <%= render "goals/add_goals"  %>
     <div class="column is-7">
       <div class="card">
         <div class="card-header">

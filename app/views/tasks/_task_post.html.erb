@@ -1,5 +1,5 @@
-<!-- Posting Goal -->
-<div class="card goal" id="<%= dom_id goal %>" style="margin-top: 20px">
+<!-- Posting Task -->
+<div class="card task" id="<%= dom_id task %>" style="margin-top: 20px">
   <div class="card-content">
     <div class="media">
       <div class="media-left">
@@ -11,23 +11,23 @@
         <div class="content">
           <strong1> <%= current_user.name %> </strong1>
           <br>
-          <p> <%= goal.title %> </p>
+          <p> <%= task.title %> </p>
         </div>
       </div>
       <div class="media-right">
-        <strong>GOAL COMPLETED!</strong> 
+        <strong>TASK COMPLETED!</strong> 
         <br>
-        <small> <%= goal.completed.strftime("%^b %d") %> </small>
+        <small> <%= task.completed.strftime("%^b %d") %> </small>
       </div>     
     </div>
   </div>
   <div class="card-footer">
-    <%= link_to icon("thumbs-up", "Like"), toggle_like_path(goal_id: goal.id), 
-          class: "js-like-goal button is-white #{'is-liked' if current_user && current_user.liking?(goal)}", 
+    <%= link_to icon("thumbs-up", "Like"), toggle_like_path(task_id: task.id), 
+          class: "js-like-task button is-white #{'is-liked' if current_user && current_user.liking?(task)}", 
           method: 'post', remote: true %>
   </div>
     <div class="likes-sentence">
-      <%= render "likes/likes_sentence", goal: goal %>
+      <%= render "likes/likes_sentence_task", goal: goal %>
     </div>
 </div>
 

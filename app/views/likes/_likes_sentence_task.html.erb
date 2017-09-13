@@ -1,0 +1,8 @@
+<div class="card-footer js-likes-sentence_task">
+  <% if task.likes.present? %>
+    <div class="like" style="color: skyblue;">
+      <%= fa_stacked_icon "thumbs-up" %>
+      <%= task.likes.map(&:user_name).to_sentence %>
+    </div>
+  <% end %>
+</div>

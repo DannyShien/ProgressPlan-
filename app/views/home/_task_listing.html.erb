@@ -1,0 +1,22 @@
+<div class="card-tasks" data-id="<%= task.id %>" id="card-task-<%= task.id %>">
+  <div class="level">
+    <div class="level-left">
+      <div class="level-item">
+        <div class="task-title"><strong><%= task.title %></strong></div>
+      </div>
+    </div>
+    <div class="level-right">
+      <div class="level-item">
+        <% unless task.completed %>
+          <%= link_to icon("check-square-o", " "), complete_path(task.id), class: "menu-item" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="card-content">
+    <div class="content" style="position: relative;">
+      <progress class="progress is-info" value="<%= task.completion_rate %>" max="100"></progress>
+      <span class="progresslabel"><%= task.completion_rate %> % </span>
+    </div>
+  </div>
+</div>
