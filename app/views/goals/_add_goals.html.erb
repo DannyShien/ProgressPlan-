@@ -9,9 +9,9 @@
     <section class="modal-card-body">
     <%= form_for current_user.goals.build do |f| %>
       <div class="field">
-        <label class="label">Title</label>
+        <label class="label">Goal</label>
         <div class="control">
-          <%= f.text_field :title, class: "input", placeholder: "Title" %>
+          <%= f.text_field :title, class: "input", placeholder: "What is your goal?" %>
         </div>
       </div> 
       <div class="field">

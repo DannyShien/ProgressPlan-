@@ -30,10 +30,10 @@
                 <%= render "tasks/add_task_modal", goal: goal %>
               <% end %>
             </ul>
-            <footer class="card-footer">
-              <%= link_to "Add Goal", "/", class: "card-item js-show-modal is-outlined", remote: true %>
-            </footer> 
           </div>
+          <footer class="card-footer">
+            <%= link_to "Add Goal", "/", class: "card-item js-show-modal is-outlined", remote: true %>
+          </footer> 
         </div>
       </aside>
     </div>
@@ -59,9 +59,9 @@
                     <% end %>
                   <% end %>          
                 </div>
-                <div class="control">
-                  <div class="button is-primary add-task-btn" data-goal-id="<%= goal.id %>">Add</div>
-                </div>
+                <footer class="card-footer">
+                  <%= link_to "Add Task", "/", class: "card-item is-outlined add-task", 'data-goal-id': goal.id, remote: true %>
+                </footer>
               </div>
             <% end %>
           </div>
