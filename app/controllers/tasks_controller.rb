@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  
+
   def index
     @task = Task.all
   end
@@ -22,13 +24,15 @@ class TasksController < ApplicationController
 
   def complete
     @task = Task.find(params[:id])
-    @task.completed = DateTime.now
-    if @task.save
+    if @task.toggle!
       flash[:success] = "Completed"
     else
       flash[:error] = @task.errors.full_messages.to_sentence
     end
-    redirect_to root_path
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js
+    end
   end
 
   def task_params

@@ -1,0 +1,9 @@
+<div class="task">
+  <%= form_for task, url: complete_task_path(task), remote: true, authenticity_token: true do |f| %>
+    <label class="checkbox">
+      <%= check_box_tag "task", 1, task.completed?, onChange: "$(this.form).find('input[type=submit]').click()" %>
+      <%= task.title %>
+    </label>
+    <%= f.submit nil, style: "display: none"%>
+  <% end %>
+</div>

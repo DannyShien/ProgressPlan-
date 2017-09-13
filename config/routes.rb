@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
-  resource :goals
-  resource :daily_tasks
-
   get "complete/:id" => "goals#complete", as: 'complete'
   get 'auth/:provider/callback' => 'sessions#callback'
-
-
+  
+  post "toggle_like" => "likes#toggle"
+  
+  resource :goals
+  resource :daily_tasks
   resources :users
   resources :posts
-  resources :tasks
+  resources :tasks do
+    patch :complete, on: :member
+  end
 
   get "login" => "sessions#login"
   post "login" => "sessions#create"

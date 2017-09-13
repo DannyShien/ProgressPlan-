@@ -1,0 +1,2 @@
+console.log("<%= @task.title %>: <%= @task.completed? %>");
+$("#card-goal-<%= @task.goal_id %>").replaceWith("<%= j render "home/goal_listing", goal: @task.goal %>");
