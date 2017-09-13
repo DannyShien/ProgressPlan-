@@ -1,6 +1,6 @@
 module ApplicationHelper
   def class_for flash_type
-    { success: 'is-primary', error: 'is-danger', notice: 'is-warning'}[flash_type.to_sym]
+    { success: 'is-info', error: 'is-danger', notice: 'is-warning'}[flash_type.to_sym]
   end
 
   def flash_messages(flash)

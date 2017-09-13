@@ -22,7 +22,7 @@ strong {
 .card-goals {
   cursor: pointer;
   &:hover {
-    background-color: rgba(250, 250, 240, 1);
+    background-color: rgb(233, 246, 255);
   }
 }
 
@@ -31,5 +31,5 @@ strong {
 }
 
 .is-liked {
-  color: green !important; 
+  color: skyblue !important; 
 }

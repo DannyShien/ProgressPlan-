@@ -1,7 +1,7 @@
 <% if current_user %>  
 <div class="container">  
   <div class="columns">
-    <div class="column is-5", style="background-color: lightyellow;">
+    <div class="column is-5">
       <aside class="menu">
         <div class="media">
           <div class="media-left">
@@ -12,7 +12,7 @@
           <div class="media-content">   
             <h1 class="title"><%= current_user.name %></h1>
             <ul class="menu-list">
-              <li><%= link_to icon("check-square-o", "Accomplish"), "#", class: "menu-item" %></li>
+              <!-- <li><%= link_to icon("check-square-o", "Accomplish"), "#", class: "menu-item" %></li> -->
               <li><%= link_to icon("users", "Friends"), users_path, class: "menu-item" %></li>               
             </ul>
           </div>
@@ -38,7 +38,7 @@
       </aside>
     </div>
     <%= render "goals/add_goals"  %>
-    <div class="column is-7", style="background-color: lightblue;">
+    <div class="column is-7">
       <div class="card">
         <div class="card-header">
           <div class="card-header-title">

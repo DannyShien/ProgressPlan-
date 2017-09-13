@@ -8,13 +8,13 @@
   </head>
 
   <body>
-  <nav class="navbar", style="background-color: grey;">
+  <nav class="navbar" style="background-color: #E9E9E9;">
     <div class="navbar-menu">
-      <div class="navbar-end", style="background-color: lightpink;">
+      <div class="navbar-end">
         <% if current_user %>
-          <%= link_to "Log Out", logout_path, class: "navbar-item" %>
+          <%= link_to icon("sign-out", " "), logout_path, class: "navbar-item" %>
         <% else %>                 
-          <%# link_to "Log Out", logout_path, class: "navbar-item" %>
+          <% link_to icon("sign-in", " "), login_path, class: "navbar-item" %>
         <% end %>  
       </div> 
     </div>  

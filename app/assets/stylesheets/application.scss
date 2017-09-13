@@ -26,8 +26,8 @@
 a {
   color: skyblue;
   margin-top: 7px;
-      margin-left: 5px;
-      margin-left: 5px;
+  margin-left: 5px;
+  margin-left: 5px;
 }
 
 .subtitle:not(:last-child) {
@@ -45,10 +45,39 @@ a {
   left: 240px;
   top: -4px;
   font-size: medium;
-  color: #32af49;
+  color: white;
   font-weight: 800;
 }
 
 .hidden {
   display: none;
+}
+
+.button.is-small {
+  top: 28px;
+}
+
+.card-header {
+  background-color: slategray;
+}
+.subtitle {
+  color: white;
+}
+
+body {
+  background-color: #E9E9E9;
+}
+
+.like {
+  color: slategray;
+  font-size: 12px;
+  margin-top: 3px;
+  margin-left: 3px;
+}
+
+.icon .fa {
+  font-size: 21px;
+  margin-right: 7px;
+  margin-top: -4px;
+  color: skyblue
 }

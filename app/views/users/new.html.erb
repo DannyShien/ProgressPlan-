@@ -1,3 +1,14 @@
+<nav class="navbar" style="background-color: #E9E9E9">
+  <div class="navbar-menu">
+    <div class="navbar-end"> 
+      <% if current_user %>
+        <% else %>                 
+          <% link_to icon("sign-in", " "), login_path, class: "navbar-item" %>
+          <%= link_to icon("sign-out", " "), logout_path, class: "navbar-item" %>
+        <% end %> 
+    </div> 
+  </div>  
+</nav>
 <div class="columns is-centered">
   <div class="column is-4">
     <div class="card", style="margin-top: 15px;">
@@ -38,10 +49,11 @@
             </div>
           </div>
           <div class="field">
-            <%= f.submit "Register", class: "button is-primary" %>
+            <%= f.submit "Register", class: "button is-info is-outlined" %>
           </div>
         <% end %>
       </div>
     </div>
   </div>
 </div>
+

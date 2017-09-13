@@ -1,5 +1,4 @@
 class TasksController < ApplicationController
-  
 
   def index
     @task = Task.all
@@ -25,7 +24,7 @@ class TasksController < ApplicationController
   def complete
     @task = Task.find(params[:id])
     if @task.toggle!
-      flash[:success] = "Completed"
+      [:success] = "Completed"
     else
       flash[:error] = @task.errors.full_messages.to_sentence
     end
