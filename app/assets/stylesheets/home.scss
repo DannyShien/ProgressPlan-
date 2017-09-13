@@ -10,12 +10,16 @@ strong {
   font-size: 18px;
 }
 
-strong1 {
-  font-size: 22px;
-  font-weight: 700;
-}
+// .set-date {
+//   font-size: 22px;
+//   font-weight: 700;
+// }
 
-.goal-title {
+// .due-date {
+//   font-weight: none;
+// }
+
+.card-goals {
   cursor: pointer;
   &:hover {
     background-color: rgba(250, 250, 240, 1);
@@ -24,4 +28,8 @@ strong1 {
 
 .task-list {
   padding-left: 1rem;
+}
+
+.is-liked {
+  color: green !important; 
 }

@@ -1,5 +1,5 @@
 <!-- Posting Goal -->
-<div class="card post" style="margin-top: 20px">
+<div class="card goal" id="<%= dom_id goal %>" style="margin-top: 20px">
   <div class="card-content">
     <div class="media">
       <div class="media-left">
@@ -23,9 +23,11 @@
   </div>
   <div class="card-footer">
     <%= link_to icon("thumbs-up", "Like"), toggle_like_path(goal_id: goal.id), 
-          class: "js-like-post button is-white #{'is-liked' if current_user && current_user.liking?(goal)}", 
+          class: "js-like-goal button is-white #{'is-liked' if current_user && current_user.liking?(goal)}", 
           method: 'post', remote: true %>
   </div>
-  <%= render "goals/likes_goal", goal: goal %>
+    <div class="likes-sentence">
+      <%= render "likes/likes_sentence", goal: goal %>
+    </div>
 </div>
 

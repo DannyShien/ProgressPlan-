@@ -7,7 +7,7 @@ class LikesController < ApplicationController
       @item = Task.find params[:task_id]
       current_user.toggle_like!(@item)
     end 
-
+    
     respond_to do |format|
       format.html { redirect_back fallback_location: root_path }     
       format.js

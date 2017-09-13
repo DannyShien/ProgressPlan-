@@ -3,7 +3,7 @@
     <% @incomplete_goals.each do |goal|%>
       <div class="card hidden" id="<%= dom_id goal %>">
         <div class="card-content">             
-          <span><strong><%= goal.title %></strong></span>
+          <div><strong><%= goal.title %></strong></div>
         </div>          
         <% goal.tasks.each do |task| %>
           <%= task.title %>

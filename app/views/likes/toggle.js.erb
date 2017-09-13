@@ -1,7 +1,7 @@
+
 <% if @item.class == Goal %>
   $("#<%= dom_id @item %>").find(".js-like-goal").toggleClass("is-liked");
-  $("#<%= dom_id @item %>").find(".js-likes-sentence").replaceWith("<%= j render 'goals/likes_sentence', goal: @item %>"); 
-
+  $("#<%= dom_id @item %>").find(".js-likes-sentence").replaceWith("<%= j render 'likes/likes_sentence', goal: @item %>"); 
 <% else %>
-  $("#<%= dom_id @item %>").find("a.js-like-comment").toggleClass("is-liked");
+  $("#<%= dom_id @item %>").find("a.js-like-task").toggleClass("is-liked");
 <% end %>

@@ -1,7 +1,7 @@
-<div class="card-footer js-likes-goal">
+<div class="card-footer js-likes-sentence">
   <% if goal.likes.present? %>
     <div>
-      <%= fa_stacked_icon "thumbs-up inverse", base: "circle" %>
+      <%= fa_stacked_icon "thumbs-up" %>
       <%= goal.likes.map(&:user_name).to_sentence %>
     </div>
   <% end %>
