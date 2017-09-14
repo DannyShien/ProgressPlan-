@@ -33,3 +33,10 @@ strong {
 .is-liked {
   color: skyblue !important; 
 }
+
+html {
+  height: 100%;
+}
+body {
+  min-height: 100vh;
+}
