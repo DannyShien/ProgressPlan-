@@ -24,7 +24,7 @@ class TasksController < ApplicationController
   def complete
     @task = Task.find(params[:id])
     if @task.toggle!
-      [:success] = "Completed"
+      flash[:success] = "Completed"
     else
       flash[:error] = @task.errors.full_messages.to_sentence
     end
@@ -38,3 +38,6 @@ class TasksController < ApplicationController
     params.require(:task).permit(:title, :goal_id)
   end
 end
+
+
+

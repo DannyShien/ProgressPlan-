@@ -43,14 +43,6 @@ class User < ApplicationRecord
     goals.where("completed is null").order("created_at DESC")
   end
 
-  def completed_tasks
-    tasks.where("completed is not null").order("created_at DESC")
-  end
-
-  def incomplete_tasks
-    tasks.where("completed is null").order("created_at DESC")
-  end
-
   def toggle_like!(item)
     if like = likes.where(item: item).first
       like.destroy  
@@ -58,11 +50,19 @@ class User < ApplicationRecord
       likes.where(item: item).create!
     end
   end
-
+  
   def liking?(item)
     likes.where(item: item).exists?
   end
+  
+  def completed_tasks
+    tasks.where("completed is not null").order("created_at DESC")
+  end
 
+  def incomplete_tasks
+    tasks.where("completed is null").order("created_at DESC")
+  end
+  
   def add_friend(another_user)
     friends << another_user
   end
