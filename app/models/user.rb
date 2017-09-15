@@ -5,7 +5,6 @@ class User < ApplicationRecord
 
   has_many :posts, foreign_key: 'poster_id'
   has_many :goals, dependent: :destroy
-  has_many :tasks, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
@@ -43,6 +42,12 @@ class User < ApplicationRecord
     goals.where("completed is null").order("created_at DESC")
   end
 
+  def completed_tasks_and_goals
+    result = completed_tasks + completed_goals
+    result = result.sort! {|a, b| b.updated_at <=> a.updated_at }
+    result
+  end
+
   def toggle_like!(item)
     if like = likes.where(item: item).first
       puts like
@@ -54,6 +59,10 @@ class User < ApplicationRecord
   
   def liking?(item)
     likes.where(item: item).exists?
+  end
+
+  def tasks
+    Task.where(goal_id: goals.map(&:id))
   end
   
   def completed_tasks

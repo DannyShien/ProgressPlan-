@@ -30,7 +30,7 @@ class TasksController < ApplicationController
     end
     respond_to do |format|
       format.html { redirect_to root_path }
-      format.js 
+      format.js  { @items = current_user.completed_tasks_and_goals } 
     end
   end
 

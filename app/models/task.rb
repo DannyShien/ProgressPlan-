@@ -2,7 +2,7 @@ class Task < ApplicationRecord
   belongs_to :goal
   
 
-  has_many :likes, dependent: :destroy
+  has_many :likes, as: :item
 
   def toggle!
     if completed

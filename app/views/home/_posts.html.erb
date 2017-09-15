@@ -1,0 +1,7 @@
+<% items.each do |item| %>
+  <% if item.instance_of? Goal %>
+    <%= render "goals/goal_post", goal: item %>
+  <% else %>
+    <%= render "tasks/task_post", task: item %>
+  <% end %>
+<% end %>

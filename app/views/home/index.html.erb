@@ -68,10 +68,8 @@
         </div>
       </div>
       <div class="columns is-centered">
-        <div class="column is-10", style="margin-top: 10px;">
-          <% @completed_goals.each do |goal| %>
-          <%= render "goals/goal_post", goal: goal %>
-          <% end %>
+        <div class="column is-10 posts", style="margin-top: 10px;">
+          <%= render 'home/posts', items: @completed_goals %>
         </div>
       </div>
     </div>
