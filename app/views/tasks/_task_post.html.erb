@@ -4,7 +4,7 @@
     <div class="media">
       <div class="media-left">
         <div class="image is-64x64">
-          <%= image_tag "http://lorempixel.com/128/128/people/" %>
+          <%= image_tag(current_user.image_url_or_default) %>
         </div>
       </div>
       <div class="media-content">
@@ -22,12 +22,12 @@
     </div>
   </div>
   <div class="card-footer">
-    <%= link_to icon("thumbs-up", "Like"), toggle_like_path(task_id: task.id), 
+    <%= link_to icon("thumbs-up", ""), toggle_like_path(task_id: task.id), 
           class: "js-like-task button is-white #{'is-liked' if current_user && current_user.liking?(task)}", 
           method: 'post', remote: true %>
   </div>
     <div class="likes-sentence">
-      <%= render "likes/likes_sentence_task", goal: goal %>
+      <%= render "likes/likes_sentence_task", task: task %>
     </div>
 </div>
 

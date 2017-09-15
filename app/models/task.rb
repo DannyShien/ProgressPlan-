@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
   belongs_to :goal
+  
 
   has_many :likes, dependent: :destroy
 

@@ -22,7 +22,7 @@
     </div>
   </div>
   <div class="card-footer">
-    <%= link_to icon("thumbs-up", "Like"), toggle_like_path(goal_id: goal.id), 
+    <%= link_to icon("thumbs-up", ""), toggle_like_path(goal_id: goal.id), 
           class: "js-like-goal button is-white #{'is-liked' if current_user && current_user.liking?(goal)}", 
           method: 'post', remote: true %>
   </div>

@@ -30,4 +30,8 @@ $(document).on('turbolinks:load', function() {
     var goal_id = $(e.target).first().data('goal-id');
     $('#add_task_goal_'+ goal_id).addClass('is-active');
   })
+
+  $("button.flash-delete").on("click", function() {
+    $("body").addClass("is-active");
+  })
 })

@@ -45,6 +45,7 @@ class User < ApplicationRecord
 
   def toggle_like!(item)
     if like = likes.where(item: item).first
+      puts like
       like.destroy  
     else
       likes.where(item: item).create!

@@ -10,16 +10,20 @@
   <body>
   <nav class="navbar" style="background-color: #E9E9E9;">
     <div class="navbar-menu">
-      <div class="navbar-end">
-        <% if current_user %>
-          <%= link_to icon("sign-out", " "), logout_path, class: "navbar-item" %>
-        <% else %>                 
-          <% link_to icon("sign-in", " "), login_path, class: "navbar-item" %>
-        <% end %>  
+      <div class="navbar-start">
+        <%= link_to icon("hand-rock-o", " ") + icon("hand-paper-o", " ") + icon("hand-scissors-o", " "), root_path, class: "navbar-logo" %>
+      </div>
+        <div class="navbar-end">
+          <% if current_user %>
+            <%= link_to icon("sign-out", " "), logout_path, class: "navbar-item" %>
+          <% else %>                 
+            <% link_to icon("sign-in", " "), login_path, class: "navbar-item" %>
+          <% end %>  
+        </div> 
       </div> 
-    </div>  
+      </div>
   </nav>
-  <%= flash_messages(flash) %>
+  <!-- flash_messages(flash) -->
     <%= yield %>
   </body>
 </html>
