@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .card-content {
-  padding: 0.5rem;
+  padding: 0px ;
 }
 
 strong {
@@ -41,4 +41,10 @@ html {
 }
 body {
   min-height: 100vh;
+}
+
+user {
+  color: #725DBF;
+  font-weight: bold;
+  font-size: 24px; 
 }

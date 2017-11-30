@@ -9,7 +9,7 @@
 }
 
 .field:not(:last-child) {
- margin-top: 10px;
+  margin-top: 10px;
   margin-left: 5px;
   margin-right: 5px;
 }
@@ -36,7 +36,7 @@ a {
 }
 
 .media {
-  margin-bottom: 15px;
+  margin: 10px 0px 10px 0px; 
 }
 
 .progresslabel {
@@ -58,7 +58,7 @@ a {
 }
 
 .card-header {
-  background-color: slategray;
+  background-color: #CEC2FF;
 }
 .subtitle {
   color: white;
@@ -66,7 +66,7 @@ a {
 
 body {
   background-color: #E9E9E9;
-  color: dodgerblue;
+  color: #725DBF;
 }
 
 .like {
@@ -86,11 +86,17 @@ body {
 
 img {
   border-radius: 100%;
+  margin-top: 5px;
+  margin-left: 5px;
 }
 
 a.navbar-logo {
-  color: dodgerblue;
+  color: #D499B9;
   margin-left: 20px;
+}
+
+.column.is-10.posts {
+  margin-top: 0px;
 }
 
 // .card-content-text {
